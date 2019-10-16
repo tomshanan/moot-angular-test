@@ -1,0 +1,8 @@
+.form-group{
+    margin:.3em;
+}
+span.error{
+    display: block;
+    font-size: .7em;
+    color: darkred;
+}

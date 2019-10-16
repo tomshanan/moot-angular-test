@@ -1,0 +1,30 @@
+<h2>User List</h2>
+<table style="min-width: 500px;" *ngIf="(users$ | async).length != 0; else noUsers">
+    <thead>
+        <tr>
+          <th>Name</th>
+          <th>Surname</th>
+          <th>Job</th>
+          <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let user of (users$ | async)">
+      <td>{{user.name}}</td>
+      <td>{{user.surname}}</td>
+      <td>{{user.job}}</td>
+      <td>
+        <dialog [open]="userDetails === user.id">
+            <button (click)="userDetails = null" style="float: right;">Close</button>
+            <app-user-details [user]="user"></app-user-details>
+        </dialog>
+        <button type="button" (click)="userDetails = user.id">Details</button>
+        <button type="button" (click)="deleteUser(user)">Delete</button>
+        
+      </td>
+    </tr>
+  </tbody>
+</table>
+<ng-template #noUsers>
+    There are no users... =(
+</ng-template>

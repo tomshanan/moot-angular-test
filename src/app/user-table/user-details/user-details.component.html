@@ -1,0 +1,18 @@
+<p>
+    Name: {{user.name}}
+</p>
+<p>
+    Surname: {{user.surname}}
+</p>
+<p>
+    Birth Date: {{ user.birthdate | date:'MMM dd, yyyy'}}
+</p>
+<p>
+    Email: <a [href]="'mailto:'+user.email">{{user.email}}</a>
+</p>
+<p> 
+    office: {{user.office}}
+</p>
+<p>
+    Job: {{user.job}}
+</p>
